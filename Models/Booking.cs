@@ -2,7 +2,9 @@
 {
     public class Booking
     {
+
         public int IDBooking {  get; set; }
+        public int IDUsuario { get; set; }
         public EBookingStatus Status { get; set; }
         public User User { get; set; }
         public Car Car { get; set; }
