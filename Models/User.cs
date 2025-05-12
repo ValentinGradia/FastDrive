@@ -1,8 +1,11 @@
-﻿namespace FastDrive.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FastDrive.Models
 {
     public class User
     {
-        public int IDUsuario { get; set; }
+        [Key]
+        public int IDUser { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\valen\\source\\repos\\FastDrive\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\survey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\survey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\interfaces\\iauthentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:interfaces\\iauthentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\data\\fastdrivecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:data\\fastdrivecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\validators\\bookingvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\validators\\bookingvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\survey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\survey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +53,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 293,
+          "DockedWidth": 252,
           "SelectedChildIndex": 5,
           "Children": [
             {
@@ -50,54 +78,151 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "IAuthentication.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Interfaces\\IAuthentication.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IAuthentication.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Interfaces\\IAuthentication.cs",
+              "RelativeToolTip": "Interfaces\\IAuthentication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T17:29:58.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserValidator.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Validators\\UserValidator.cs",
+              "RelativeDocumentMoniker": "Models\\Validators\\UserValidator.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Validators\\UserValidator.cs",
+              "RelativeToolTip": "Models\\Validators\\UserValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T17:27:58.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BookingValidator.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Validators\\BookingValidator.cs",
+              "RelativeDocumentMoniker": "Models\\Validators\\BookingValidator.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Validators\\BookingValidator.cs",
+              "RelativeToolTip": "Models\\Validators\\BookingValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T22:57:39.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Survey.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Survey.cs",
               "RelativeDocumentMoniker": "Models\\Survey.cs",
               "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Survey.cs",
               "RelativeToolTip": "Models\\Survey.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T22:18:43.436Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 334,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-12T17:56:13.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Car.cs",
-              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Car.cs",
-              "RelativeDocumentMoniker": "Models\\Car.cs",
-              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Car.cs",
-              "RelativeToolTip": "Models\\Car.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "FastDriveContext.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Data\\FastDriveContext.cs",
+              "RelativeDocumentMoniker": "Data\\FastDriveContext.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Data\\FastDriveContext.cs",
+              "RelativeToolTip": "Data\\FastDriveContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T22:12:00.037Z",
+              "WhenOpened": "2025-05-12T17:52:04.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T17:36:30.974Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T17:35:03.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Car.cs",
+              "RelativeDocumentMoniker": "Models\\Car.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Car.cs",
+              "RelativeToolTip": "Models\\Car.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T22:58:04.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Booking.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Booking.cs",
               "RelativeDocumentMoniker": "Models\\Booking.cs",
               "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Booking.cs",
               "RelativeToolTip": "Models\\Booking.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T22:11:18.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
               "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAkAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T22:05:00.448Z",
+              "WhenOpened": "2025-05-03T22:34:27.699Z",
               "EditorCaption": ""
             }
           ]

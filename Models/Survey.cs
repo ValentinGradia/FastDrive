@@ -1,8 +1,12 @@
-﻿namespace FastDrive.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FastDrive.Models
 {
     public class Survey
     {
-        public int IDUsuario { get; set; }
+        [Key]
+        public int IDSurvey {  get; set; }
+        public int IDUser { get; set; }
         public int IDBooking { get; set; }
         public string Description { get; set; }
         public int ServiceCalification {  get; set; }
