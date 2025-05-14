@@ -1,14 +1,13 @@
 ﻿using FastDrive.Models;
+using FastDrive.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastDrive.Interfaces
 {
     public interface IAuthentication
     {
-        public IActionResult Login([FromBody]string username, [FromBody] string password);
+        public Task<IActionResult> Login([FromBody] UserDTO userDto);
 
-        public IActionResult Register([FromBody] User user);
-
-        public string GenerateJwtToken(User user);
+        public Task<IActionResult> Register([FromBody] User userDto);
     }
 }
