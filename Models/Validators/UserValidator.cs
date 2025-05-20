@@ -11,7 +11,6 @@ namespace FastDrive.Models.Validators
             RuleFor(u => u.Age).GreaterThan(17).NotEmpty();
             RuleFor(u => u.DNI).NotEmpty();
             RuleFor(u => u.Email).EmailAddress().NotEmpty();
-            //RuleFor(u => u.UserType).Must(e => e is EUserType).NotEmpty();
 
         }
 

@@ -5,8 +5,8 @@ namespace FastDrive.Data
 {
     public class FastDriveContext : DbContext
     {
-        public DbSet<Car> Cars {get ; set;}
-        public DbSet<Survey> Surveys {get ; set;}
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Survey> Surveys { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Booking> Bookings { get; set; }
 

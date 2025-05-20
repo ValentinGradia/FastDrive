@@ -1,10 +1,14 @@
-﻿using FastDrive.Interfaces;
+﻿using AutoMapper;
+using FastDrive.Data;
+using FastDrive.Interfaces;
 using FastDrive.Models;
+using FastDrive.Models.AutoMapperModels;
 using FastDrive.Models.DTO;
 using FastDrive.Models.Validators;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NSwag.Annotations;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,16 +22,30 @@ namespace FastDrive.Controllers
     public class AuthenticationController : Controller, IAuthentication
     {
         private readonly IConfiguration _config;
+        private readonly FastDriveContext _context;
 
-        public AuthenticationController(IConfiguration config)
+        public AuthenticationController(IConfiguration config, FastDriveContext context)
         {
             _config = config;
+            _context = context;
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserDTO loginDto)
         {
-            return Ok();
+            if (loginDto != null)
+            {
+                try
+                {
+                    User user = await _context.Users.FirstOrDefaultAsync(u => u.Password == loginDto.Password);
+                    return Ok(GenerateJwtToken(user));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest("User doesn´t exists");
+                }
+            }
+            return BadRequest("Invalid Data");
         }
 
         [AllowAnonymous]
@@ -39,10 +57,15 @@ namespace FastDrive.Controllers
                 UserValidator validator = new UserValidator();
                 ValidationResult result = validator.Validate(user);
 
-                if (result.IsValid)
-                    return Ok(GenerateJwtToken(user));
 
-                return BadRequest();
+                if (result.IsValid)
+                {
+                    await _context.Users.AddAsync(user);
+                    _context.SaveChanges();
+                    return Ok(GenerateJwtToken(user));
+                }
+                else
+                    return BadRequest();
 
             }
             else

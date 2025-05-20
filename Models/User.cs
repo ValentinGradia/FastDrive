@@ -20,14 +20,8 @@ namespace FastDrive.Models
         public int Age { get; set; }
         public string Surname {  get; set; }
         public int DNI { get; set; }
-        public EUserType UserType { get; set; }
+        public string UserType { get; set; }
 
     }
 
-    public enum EUserType
-    {
-        Customer = 0,
-        Operator = 1,
-        Admin = 2
-    }
 }

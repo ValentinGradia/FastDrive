@@ -70,15 +70,6 @@
   },
   "components": {
     "schemas": {
-      "EUserType": {
-        "enum": [
-          0,
-          1,
-          2
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
       "User": {
         "type": "object",
         "properties": {
@@ -107,7 +98,8 @@
             "format": "int32"
           },
           "UserType": {
-            "$ref": "#/components/schemas/EUserType"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
