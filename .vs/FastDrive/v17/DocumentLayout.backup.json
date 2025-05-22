@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|solutionrelative:models\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB2940F6-57B8-4936-B37C-B279B3D28DA0}|FastDrive.csproj|c:\\users\\valen\\source\\repos\\fastdrive\\models\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -44,7 +48,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 353,
+          "DockedWidth": 407,
           "SelectedChildIndex": 6,
           "Children": [
             {
@@ -69,7 +73,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\DTO\\UserDTO.cs",
               "RelativeDocumentMoniker": "Models\\DTO\\UserDTO.cs",
@@ -85,9 +89,9 @@
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\UserController.cs*",
-              "RelativeToolTip": "Controllers\\UserController.cs*",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAwEYAAAAVAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T21:46:27.234Z",
               "EditorCaption": ""
@@ -100,13 +104,14 @@
               "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
               "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\AuthenticationController.cs",
               "RelativeToolTip": "Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAgwEoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwEIAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T17:36:30.974Z"
+              "WhenOpened": "2025-05-12T17:36:30.974Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "UserValidator.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Validators\\UserValidator.cs",
               "RelativeDocumentMoniker": "Models\\Validators\\UserValidator.cs",
@@ -118,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "UserMappingProfile.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\AutoMapperModels\\UserMappingProfile.cs",
               "RelativeDocumentMoniker": "Models\\AutoMapperModels\\UserMappingProfile.cs",
@@ -130,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IAuthentication.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Interfaces\\IAuthentication.cs",
               "RelativeDocumentMoniker": "Interfaces\\IAuthentication.cs",
@@ -142,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "BookingValidator.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Models\\Validators\\BookingValidator.cs",
               "RelativeDocumentMoniker": "Models\\Validators\\BookingValidator.cs",
@@ -155,25 +160,38 @@
           ]
         },
         {
-          "DockedWidth": 233,
+          "DockedWidth": 179,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CarController.cs",
+              "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Controllers\\CarController.cs",
+              "RelativeToolTip": "Controllers\\CarController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T03:35:50.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\FastDrive\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\valen\\source\\repos\\FastDrive\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAADwvxMAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-22T00:10:12.898Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TestingFluentValidation.cs",
               "DocumentMoniker": "C:\\Users\\valen\\source\\repos\\Testing\\TestingFluentValidation.cs",
               "RelativeDocumentMoniker": "..\\Testing\\TestingFluentValidation.cs",

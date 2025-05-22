@@ -21,7 +21,7 @@ internal class Program
 
         builder.Services.AddControllers(options =>
         {
-            options.Filters.Add(new AuthorizeFilter()); //Implementing this, all controllers and action methos will require authorization by default
+            /*options.Filters.Add(new AuthorizeFilter());*/ //Implementing this, all controllers and action methos will require authorization by default
         })
         .AddNewtonsoftJson()
         .AddJsonOptions(options =>

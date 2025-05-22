@@ -7,7 +7,7 @@ namespace FastDrive.Models.Validators
 
         public BookingValidator()
         {
-            RuleFor(b => b.Status).Must(s => s is EBookingStatus).NotEmpty();
+            //RuleFor(b => b.Status).Must(s => s is EBookingStatus).NotEmpty();
         }
     }
 }

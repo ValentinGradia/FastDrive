@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FastDrive")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4474e01a16768c1fe8dd7edf82f3fc838229954")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f9867117660398fa9e75cbfcd82e5f00b6b987c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FastDrive")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FastDrive")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
