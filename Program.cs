@@ -4,6 +4,7 @@ using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 internal class Program
 {
@@ -20,8 +21,9 @@ internal class Program
 
         builder.Services.AddControllers(options =>
         {
-            //options.Filters.Add(new AuthorizeFilter()); Implementing this, all controllers and action methos will require authorization by default
+            options.Filters.Add(new AuthorizeFilter()); //Implementing this, all controllers and action methos will require authorization by default
         })
+        .AddNewtonsoftJson()
         .AddJsonOptions(options =>
         {
             // Configure JSON serialization to retain property names as defined in the C# model.
@@ -37,13 +39,13 @@ internal class Program
         .AddJwtBearer("Bearer", options =>
         {
             // Configure JWT token validation parameters.
-
-            if(options.TokenValidationParameters.ActorValidationParameters != null)
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = false, // Skip validating the token issuer 
-                    ValidateAudience = false, // Skip validating the token audience 
+                    ValidateIssuer = true, // Skip validating the token issuer 
+                    ValidateAudience = true, // Skip validating the token audience 
                     ValidateIssuerSigningKey = true, // Ensure the token's signing key is valid.
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])) // Use a symmetric key from configuration for token validation.
                 };
         });
@@ -66,8 +68,8 @@ internal class Program
 
         app.UseHttpsRedirection();
 
-        //app.UseAuthentication();
-        //app.UseAuthorization();
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.MapControllers();
 

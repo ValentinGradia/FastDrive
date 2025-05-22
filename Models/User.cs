@@ -12,7 +12,6 @@ namespace FastDrive.Models
     {
 
         [Key]
-        [JsonIgnore]
         public int IDUser { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }

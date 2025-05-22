@@ -23,13 +23,16 @@ namespace FastDrive.Controllers
     {
         private readonly IConfiguration _config;
         private readonly FastDriveContext _context;
+        private readonly ILogger<AuthenticationController> _logger;
 
-        public AuthenticationController(IConfiguration config, FastDriveContext context)
+        public AuthenticationController(IConfiguration config, FastDriveContext context, ILogger<AuthenticationController> logger)
         {
             _config = config;
             _context = context;
+            _logger = logger;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserDTO loginDto)
         {
@@ -62,6 +65,7 @@ namespace FastDrive.Controllers
                 {
                     await _context.Users.AddAsync(user);
                     _context.SaveChanges();
+                    _logger.LogInformation("New user registered");
                     return Ok(GenerateJwtToken(user));
                 }
                 else
@@ -89,8 +93,8 @@ namespace FastDrive.Controllers
 
             // Create a JWT token with specified claims, expiration, and signing credentials.
             var token = new JwtSecurityToken(
-                issuer: null, // No specific issuer specified.
-                audience: null, // No specific audience specified.
+                issuer: "MyApiServer",
+                audience: "PostmanClient", 
                 claims: claims, // Pass the claims defined above.
                 expires: DateTime.Now.AddHours(1), // Set token expiration to 1 hour from now.
                 signingCredentials: credentials); // Include signing credentials for the token.
