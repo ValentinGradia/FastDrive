@@ -17,7 +17,7 @@ namespace FastDrive.Models
 
     public enum EBookingStatus
     {
-        Done,
-        InProgress
+        Done = 0,
+        InProgress = 1
     }
 }

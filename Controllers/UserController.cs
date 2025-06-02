@@ -1,5 +1,4 @@
-﻿using Azure;
-using FastDrive.Data;
+﻿using FastDrive.Data;
 using FastDrive.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +11,7 @@ namespace FastDrive.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class UserController : Controller
     {
         private readonly FastDriveContext _context;
@@ -26,7 +26,6 @@ namespace FastDrive.Controllers
 
 
         [HttpGet("GetById/{id}")]
-        [Authorize]
         public async Task<IActionResult> GetUserByDNI([FromRoute] int id)
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.IDUser == id);
@@ -48,8 +47,7 @@ namespace FastDrive.Controllers
 
 
 
-        [HttpPatch("Modify/{id}")]
-        [Authorize]
+        [HttpPatch("ModifyUser/{id}")]
         //Only modify 1 or 2 attributes to the User
         public async Task<IActionResult> PatchUser([FromRoute] int id, [FromBody] JsonPatchDocument<User> patchDoc)
         {
@@ -77,8 +75,7 @@ namespace FastDrive.Controllers
             return BadRequest("Invalid data");
         }
 
-        [HttpPut("Update/{id}")]
-        [Authorize]
+        [HttpPut("UpdateUser/{id}")]
         //Update all the attributes of a user
         public async Task<IActionResult> UpdateUser([FromBody] User userParam)
         {

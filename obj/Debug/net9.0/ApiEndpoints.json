@@ -32,9 +32,150 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FastDrive.Controllers.CarController",
+    "Method": "AddCar",
+    "RelativePath": "Car/AddCar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "car",
+        "Type": "FastDrive.Models.Car",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.CarController",
+    "Method": "GetAllCars",
+    "RelativePath": "Car/GetAllCars",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.CarController",
+    "Method": "GetCarByPattent",
+    "RelativePath": "Car/GetByPatent/{patentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.CarController",
+    "Method": "PatchCar",
+    "RelativePath": "Car/ModifyCar/{patent}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patent",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "patch",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.CarController",
+    "Method": "SearchCar",
+    "RelativePath": "Car/SearchCar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "minKm",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxKm",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "brand",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.CarController",
+    "Method": "UpdateCar",
+    "RelativePath": "Car/UpdateCar/{patent}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carParam",
+        "Type": "FastDrive.Models.Car",
+        "IsRequired": true
+      },
+      {
+        "Name": "patent",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "User/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.UserController",
+    "Method": "GetUserByDNI",
+    "RelativePath": "User/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FastDrive.Controllers.UserController",
     "Method": "PatchUser",
-    "RelativePath": "User/Modify/{id}",
+    "RelativePath": "User/ModifyUser/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -55,7 +196,7 @@
   {
     "ContainingType": "FastDrive.Controllers.UserController",
     "Method": "UpdateUser",
-    "RelativePath": "User/Update/{id}",
+    "RelativePath": "User/UpdateUser/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
