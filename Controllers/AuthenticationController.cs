@@ -40,12 +40,21 @@ namespace FastDrive.Controllers
             {
                 try
                 {
-                    User user = await _context.Users.FirstOrDefaultAsync(u => u.Password == loginDto.Password);
-                    return Ok(GenerateJwtToken(user));
+                    var query =  _context.Users.AsQueryable();
+                    query = query.Where( u => u.Email == loginDto.Email);
+                    query = query.Where( u => u.Password == loginDto.Password);
+
+                    User user = query.FirstOrDefault();
+
+                    if (user == null)
+                    {
+                        throw new Exception("User doesn´t exists");
+                    }
+                    return Ok(JWT.GenerateJwtToken(user));
                 }
                 catch (Exception ex)
                 {
-                    return BadRequest("User doesn´t exists");
+                    return BadRequest(ex.Message);
                 }
             }
             return BadRequest("Invalid Data");
@@ -63,10 +72,10 @@ namespace FastDrive.Controllers
 
                 if (result.IsValid)
                 {
-                    await _context.Users.AddAsync(user);
+                    _context.Users.Add(user);
                     _context.SaveChanges();
                     _logger.LogInformation("New user registered");
-                    return Ok(GenerateJwtToken(user));
+                    return Ok(JWT.GenerateJwtToken(user));
                 }
                 else
                     return BadRequest();
@@ -74,32 +83,6 @@ namespace FastDrive.Controllers
             }
             else
                 return BadRequest("Invalid Data");
-        }
-
-        private string GenerateJwtToken(User user)
-        {
-            // Create a symmetric security key using a secret key from the configuration.
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-
-            // Specify the signing credentials using the security key and HMAC-SHA256 algorithm.
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            // Define the claims for the JWT token, including username and role.
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.Name, user.Name), // Claim representing the user's name.
-                new Claim(ClaimTypes.Role, user.UserType.ToString())   // Claim representing the user's role.
-            };
-
-            // Create a JWT token with specified claims, expiration, and signing credentials.
-            var token = new JwtSecurityToken(
-                issuer: "MyApiServer",
-                audience: "PostmanClient", 
-                claims: claims, // Pass the claims defined above.
-                expires: DateTime.Now.AddHours(1), // Set token expiration to 1 hour from now.
-                signingCredentials: credentials); // Include signing credentials for the token.
-            // Serialize the JWT token into a string and return it.
-            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }

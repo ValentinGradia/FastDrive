@@ -12,5 +12,7 @@ namespace FastDrive.Models
         public int IDBooking { get; set; }
         public string Description { get; set; }
         public int ServiceCalification {  get; set; }
+
+        public string Pablo {  get; set; }
     }
 }

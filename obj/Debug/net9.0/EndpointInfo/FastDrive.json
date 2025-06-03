@@ -77,6 +77,42 @@
         }
       }
     },
+    "/Booking/NewBooking": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Car/GetByPatent/{patentId}": {
       "get": {
         "tags": [
@@ -133,6 +169,14 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "carstatus",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -438,6 +482,24 @@
   },
   "components": {
     "schemas": {
+      "BookingDTO": {
+        "type": "object",
+        "properties": {
+          "PatentCar": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DateEnd": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "Car": {
         "type": "object",
         "properties": {
@@ -513,10 +575,6 @@
       "User": {
         "type": "object",
         "properties": {
-          "IDUser": {
-            "type": "integer",
-            "format": "int32"
-          },
           "Name": {
             "type": "string",
             "nullable": true
@@ -551,7 +609,7 @@
       "UserDTO": {
         "type": "object",
         "properties": {
-          "Username": {
+          "Email": {
             "type": "string",
             "nullable": true
           },

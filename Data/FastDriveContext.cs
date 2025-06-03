@@ -1,5 +1,6 @@
 ﻿using FastDrive.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace FastDrive.Data
 {
@@ -13,5 +14,13 @@ namespace FastDrive.Data
         public FastDriveContext() { }
 
         public FastDriveContext(DbContextOptions<FastDriveContext> options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.User)
+                .WithMany(b => b.Bookings)
+                .HasForeignKey(b => b.IDUser);
+        }
     }
 }

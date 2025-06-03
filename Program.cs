@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using FastDrive.Models.AutoMapperModels;
 
 internal class Program
 {
@@ -18,6 +19,8 @@ internal class Program
 
         builder.Services.AddDbContext<FastDriveContext>(
         o => o.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+        builder.Services.AddAutoMapper(typeof(BookingMappingProfile));
+        builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 
         builder.Services.AddControllers(options =>
         {
@@ -35,6 +38,7 @@ internal class Program
         {
             // Set the default authentication scheme to JWT Bearer.
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
         .AddJwtBearer("Bearer", options =>
         {

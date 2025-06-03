@@ -183,7 +183,6 @@ C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\YamlDotNet.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\valen\source\repos\FastDrive\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll

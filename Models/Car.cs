@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace FastDrive.Models
 {
@@ -10,6 +11,9 @@ namespace FastDrive.Models
         public string Brand { get; set; }
         public int Km { get; set; }
         public ECarStatus CarStatus { get; set; }
+
+        [AllowNull]
+        public ICollection<Booking> Bookings { get; set; }
 
     }
 

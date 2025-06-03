@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.IdentityModel.Tokens.Jwt;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
@@ -12,6 +13,7 @@ namespace FastDrive.Models
     {
 
         [Key]
+        [JsonIgnore]
         public int IDUser { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -20,6 +22,10 @@ namespace FastDrive.Models
         public string Surname {  get; set; }
         public int DNI { get; set; }
         public string UserType { get; set; }
+
+        [AllowNull]
+        public ICollection<Booking> Bookings { get; set; }
+
 
     }
 

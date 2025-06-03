@@ -9,7 +9,7 @@ namespace FastDrive.Models.AutoMapperModels
         {
             //Creating to show only the username and password in the cases user wants
             CreateMap<User, UserDTO>()
-                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
                 .ReverseMap();
         }

@@ -4,6 +4,7 @@ using FastDrive.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FastDrive.Migrations
 {
     [DbContext(typeof(FastDriveContext))]
-    partial class FastDriveContextModelSnapshot : ModelSnapshot
+    [Migration("20250603020749_UpdateModels")]
+    partial class UpdateModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,10 +97,6 @@ namespace FastDrive.Migrations
                     b.Property<int>("IDUser")
                         .HasColumnType("int");
 
-                    b.Property<string>("Pablo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ServiceCalification")
                         .HasColumnType("int");
 
@@ -148,13 +147,13 @@ namespace FastDrive.Migrations
             modelBuilder.Entity("FastDrive.Models.Booking", b =>
                 {
                     b.HasOne("FastDrive.Models.Car", "Car")
-                        .WithMany("Bookings")
+                        .WithMany()
                         .HasForeignKey("CarPatent")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("FastDrive.Models.User", "User")
-                        .WithMany("Bookings")
+                        .WithMany()
                         .HasForeignKey("IDUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -162,16 +161,6 @@ namespace FastDrive.Migrations
                     b.Navigation("Car");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("FastDrive.Models.Car", b =>
-                {
-                    b.Navigation("Bookings");
-                });
-
-            modelBuilder.Entity("FastDrive.Models.User", b =>
-                {
-                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }
