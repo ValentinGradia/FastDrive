@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FastDrive.Migrations
 {
     [DbContext(typeof(FastDriveContext))]
-    [Migration("20250603023847_AddPabloToSurvey")]
-    partial class AddPabloToSurvey
+    [Migration("20250604023125_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,10 +96,6 @@ namespace FastDrive.Migrations
 
                     b.Property<int>("IDUser")
                         .HasColumnType("int");
-
-                    b.Property<string>("Pablo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ServiceCalification")
                         .HasColumnType("int");

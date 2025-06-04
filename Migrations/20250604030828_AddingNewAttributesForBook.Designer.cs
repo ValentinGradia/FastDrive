@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FastDrive.Migrations
 {
     [DbContext(typeof(FastDriveContext))]
-    [Migration("20250602221914_UpdatingDB")]
-    partial class UpdatingDB
+    [Migration("20250604030828_AddingNewAttributesForBook")]
+    partial class AddingNewAttributesForBook
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,18 @@ namespace FastDrive.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDBooking"));
 
+                    b.Property<int>("BookingStatus")
+                        .HasColumnType("int");
+
                     b.Property<string>("CarPatent")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Cost")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("DamageReport")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("DateEnd")
                         .HasColumnType("datetime2");
@@ -46,14 +55,14 @@ namespace FastDrive.Migrations
                     b.Property<int>("IDUser")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserIDUser")
+                    b.Property<int?>("Km")
                         .HasColumnType("int");
 
                     b.HasKey("IDBooking");
 
                     b.HasIndex("CarPatent");
 
-                    b.HasIndex("UserIDUser");
+                    b.HasIndex("IDUser");
 
                     b.ToTable("Bookings");
                 });
@@ -150,20 +159,30 @@ namespace FastDrive.Migrations
             modelBuilder.Entity("FastDrive.Models.Booking", b =>
                 {
                     b.HasOne("FastDrive.Models.Car", "Car")
-                        .WithMany()
+                        .WithMany("Bookings")
                         .HasForeignKey("CarPatent")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("FastDrive.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserIDUser")
+                        .WithMany("Bookings")
+                        .HasForeignKey("IDUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Car");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("FastDrive.Models.Car", b =>
+                {
+                    b.Navigation("Bookings");
+                });
+
+            modelBuilder.Entity("FastDrive.Models.User", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }

@@ -482,6 +482,38 @@
   },
   "components": {
     "schemas": {
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "IDBooking": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IDUser": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CarPatent": {
+            "type": "string",
+            "nullable": true
+          },
+          "User": {
+            "$ref": "#/components/schemas/User"
+          },
+          "Car": {
+            "$ref": "#/components/schemas/Car"
+          },
+          "DateStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DateEnd": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "BookingDTO": {
         "type": "object",
         "properties": {
@@ -521,6 +553,13 @@
           },
           "CarStatus": {
             "$ref": "#/components/schemas/ECarStatus"
+          },
+          "Bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Booking"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -601,6 +640,13 @@
           },
           "UserType": {
             "type": "string",
+            "nullable": true
+          },
+          "Bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Booking"
+            },
             "nullable": true
           }
         },

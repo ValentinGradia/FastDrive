@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FastDrive.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateData : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,6 +17,7 @@ namespace FastDrive.Migrations
                 {
                     Patent = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Km = table.Column<int>(type: "int", nullable: false),
                     CarStatus = table.Column<int>(type: "int", nullable: false)
                 },
@@ -42,14 +43,31 @@ namespace FastDrive.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    IDUser = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DNI = table.Column<int>(type: "int", nullable: false),
+                    UserType = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.IDUser);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Bookings",
                 columns: table => new
                 {
                     IDBooking = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IDUser = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    UserIDUser = table.Column<int>(type: "int", nullable: false),
                     CarPatent = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DateStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateEnd = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -64,8 +82,8 @@ namespace FastDrive.Migrations
                         principalColumn: "Patent",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Bookings_Users_UserIDUser",
-                        column: x => x.UserIDUser,
+                        name: "FK_Bookings_Users_IDUser",
+                        column: x => x.IDUser,
                         principalTable: "Users",
                         principalColumn: "IDUser",
                         onDelete: ReferentialAction.Cascade);
@@ -77,9 +95,9 @@ namespace FastDrive.Migrations
                 column: "CarPatent");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bookings_UserIDUser",
+                name: "IX_Bookings_IDUser",
                 table: "Bookings",
-                column: "UserIDUser");
+                column: "IDUser");
         }
 
         /// <inheritdoc />
@@ -93,6 +111,9 @@ namespace FastDrive.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cars");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

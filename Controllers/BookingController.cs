@@ -42,16 +42,24 @@ namespace FastDrive.Controllers
                     User user = await _context.Users.FindAsync(int.Parse(userId));
                     Car car = await _context.Cars.FirstOrDefaultAsync(c => c.Patent == bookingDTO.PatentCar);
 
-                    if (car != null)
+                    if (car != null )
                     {
-                        Booking booking = _mapper.Map<Booking>(bookingDTO);
-                        booking.IDUser = user!.IDUser;
-                        booking.User = user;
-                        booking.Car = car!;
+                        if (car.CarStatus == ECarStatus.Available)
+                        {
 
-                        _context.Bookings.Add(booking);
-                        _context.SaveChanges();
-                        return Ok("Booking already saved");
+                            Booking booking = _mapper.Map<Booking>(bookingDTO);
+                            booking.IDUser = user!.IDUser;
+                            booking.User = user;
+                            booking.Car = car!;
+
+                            _context.Bookings.Add(booking);
+                            car.CarStatus = ECarStatus.Booked;
+                            _logger.Log(LogLevel.Information, "New booking");
+                            _context.SaveChanges();
+                            return Ok("Booking already saved");
+                        }
+                        else
+                            return BadRequest("The car is not available");
                     }
 
                     throw new Exception("Car doesn´t exists");

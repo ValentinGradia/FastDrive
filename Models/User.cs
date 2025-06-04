@@ -23,7 +23,7 @@ namespace FastDrive.Models
         public int DNI { get; set; }
         public string UserType { get; set; }
 
-        [AllowNull]
+        [AllowNull] //Navegation properties do not generate their own columns
         public ICollection<Booking> Bookings { get; set; }
 
 

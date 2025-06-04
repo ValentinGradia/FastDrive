@@ -12,7 +12,7 @@ namespace FastDrive.Models
         public int Km { get; set; }
         public ECarStatus CarStatus { get; set; }
 
-        [AllowNull]
+        [AllowNull]//Navegation properties do not generate their own columns
         public ICollection<Booking> Bookings { get; set; }
 
     }
@@ -20,8 +20,7 @@ namespace FastDrive.Models
     public enum ECarStatus
     {
         Available = 0,
-        InUse = 1,
+        Booked = 1,
         UnderRepair = 2,
-        Booked = 3
     }
 }

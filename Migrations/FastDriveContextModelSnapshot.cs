@@ -30,9 +30,18 @@ namespace FastDrive.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDBooking"));
 
+                    b.Property<int>("BookingStatus")
+                        .HasColumnType("int");
+
                     b.Property<string>("CarPatent")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Cost")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("DamageReport")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("DateEnd")
                         .HasColumnType("datetime2");
@@ -41,6 +50,9 @@ namespace FastDrive.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("IDUser")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Km")
                         .HasColumnType("int");
 
                     b.HasKey("IDBooking");
@@ -93,10 +105,6 @@ namespace FastDrive.Migrations
 
                     b.Property<int>("IDUser")
                         .HasColumnType("int");
-
-                    b.Property<string>("Pablo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ServiceCalification")
                         .HasColumnType("int");
