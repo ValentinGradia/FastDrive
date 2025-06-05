@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
 using System.Security.Claims;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace FastDrive.Controllers
 {
@@ -39,30 +41,46 @@ namespace FastDrive.Controllers
                     var currentUser = HttpContext.User;
                     var userId = currentUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+                    TimeSpan difference = bookingDTO.DateEnd - bookingDTO.DateStart;
+                    int days = difference.Days;
+
                     User user = await _context.Users.FindAsync(int.Parse(userId));
                     Car car = await _context.Cars.FirstOrDefaultAsync(c => c.Patent == bookingDTO.PatentCar);
 
                     if (car != null )
                     {
-                        if (car.CarStatus == ECarStatus.Available)
+                        if (user != null)
                         {
 
-                            Booking booking = _mapper.Map<Booking>(bookingDTO);
-                            booking.IDUser = user!.IDUser;
-                            booking.User = user;
-                            booking.Car = car!;
+                            if (car.CarStatus == ECarStatus.Available)
+                            {
 
-                            _context.Bookings.Add(booking);
-                            car.CarStatus = ECarStatus.Booked;
-                            _logger.Log(LogLevel.Information, "New booking");
-                            _context.SaveChanges();
-                            return Ok("Booking already saved");
+                                Booking booking = _mapper.Map<Booking>(bookingDTO);
+                                car.CarStatus = ECarStatus.Booked; //EF already update this within the Car table of the DB
+
+                                if(user.Bookings == null)
+                                {
+                                    user.Bookings = new List<Booking>();
+                                }
+                                user.Bookings.Add(booking);
+                                booking.IDUser = user!.IDUser;
+                                booking.User = user;
+                                booking.Car = car!;
+                                booking.Cost = days * 10;
+
+                                _context.Bookings.Add(booking);
+                                _logger.Log(LogLevel.Information, "New booking");
+                                _context.SaveChanges();
+                                return Ok($"Booking already saved, the IDBooking is: {booking.IDBooking} and will cost you USD{days * 10}$");
+                            }
+                            else
+                                return BadRequest("The car is not available");
                         }
                         else
-                            return BadRequest("The car is not available");
+                            throw new Exception("User doesn´t exists");
                     }
-
-                    throw new Exception("Car doesn´t exists");
+                    else
+                        throw new Exception("Car doesn´t exists");
                 }
                 catch (Exception ex)
                 {
@@ -75,6 +93,39 @@ namespace FastDrive.Controllers
             return BadRequest("Invalid data");
 
 
+        }
+
+        [HttpGet("GetBoooking/{IDBooking}")]
+        public async Task<IActionResult> GetBooking([FromRoute] int IDBooking)
+        {
+            try
+            {
+                Booking booking = await _context.Bookings
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(b => b.IDBooking == IDBooking);
+
+                if (booking != null)
+                {
+
+                    //Solving the error of " A possible object cycle was detected which is not supported." when i give this into a json
+                    JsonSerializerOptions options = new()
+                    {
+                        ReferenceHandler = ReferenceHandler.IgnoreCycles,
+                        WriteIndented = true,
+                        MaxDepth = 0,
+                        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+                    };
+
+                    string json = JsonSerializer.Serialize(booking, options);
+                    return Ok(json);
+                }
+                else
+                    throw new Exception("Incorect ID");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

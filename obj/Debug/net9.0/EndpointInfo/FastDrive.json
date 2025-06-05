@@ -113,6 +113,29 @@
         }
       }
     },
+    "/Booking/GetBoooking/{IDBooking}": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "IDBooking",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Car/GetByPatent/{patentId}": {
       "get": {
         "tags": [
@@ -510,6 +533,23 @@
           "DateEnd": {
             "type": "string",
             "format": "date-time"
+          },
+          "BookingStatus": {
+            "$ref": "#/components/schemas/ECarStatus"
+          },
+          "Km": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DamageReport": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Cost": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -568,8 +608,7 @@
         "enum": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "type": "integer",
         "format": "int32"
@@ -614,6 +653,10 @@
       "User": {
         "type": "object",
         "properties": {
+          "IDUser": {
+            "type": "integer",
+            "format": "int32"
+          },
           "Name": {
             "type": "string",
             "nullable": true

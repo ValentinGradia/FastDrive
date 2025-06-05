@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace FastDrive.Models
 {
@@ -13,6 +15,7 @@ namespace FastDrive.Models
         public ECarStatus CarStatus { get; set; }
 
         [AllowNull]//Navegation properties do not generate their own columns
+        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] //to avoid the loop
         public ICollection<Booking> Bookings { get; set; }
 
     }

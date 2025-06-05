@@ -6,6 +6,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using FastDrive.Models.AutoMapperModels;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 internal class Program
 {
@@ -16,6 +20,11 @@ internal class Program
         // Add services to the container.
 
         builder.Services.AddControllers();
+
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+        });
 
         builder.Services.AddDbContext<FastDriveContext>(
         o => o.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
@@ -53,7 +62,6 @@ internal class Program
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])) // Use a symmetric key from configuration for token validation.
                 };
         });
-
 
 
         builder.Services.AddEndpointsApiExplorer(); //Enables discovery of minimal API endpoints for tools like Swagger

@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,7 +14,6 @@ namespace FastDrive.Models
     {
 
         [Key]
-        [JsonIgnore]
         public int IDUser { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -24,6 +24,7 @@ namespace FastDrive.Models
         public string UserType { get; set; }
 
         [AllowNull] //Navegation properties do not generate their own columns
+        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] //to avoid the loop
         public ICollection<Booking> Bookings { get; set; }
 
 

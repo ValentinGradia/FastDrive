@@ -1,6 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace FastDrive.Models
 {
@@ -13,10 +15,13 @@ namespace FastDrive.Models
         public string CarPatent {  get; set; }
 
         [ForeignKey(nameof(IDUser))]
-        public User User { get; set; }
+
+        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] //To avoid a loop of the same data a booking has a user and a user has a booking
+        public User User { get; set; } //I have the possibility to doesnt show this becase is only one (The opposite in User.booking)
 
         [ForeignKey("CarPatent")]
-        public Car Car { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] //to avoid the loop
+        public Car Car { get; set; }//I have the possibility to doesnt show this becase is only one (The opposite in Car.booking)
 
         public DateTime DateStart {  get; set; }
         public DateTime DateEnd { get; set; }

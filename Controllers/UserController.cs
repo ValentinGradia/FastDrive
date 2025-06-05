@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace FastDrive.Controllers
 {
@@ -26,12 +28,24 @@ namespace FastDrive.Controllers
 
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetUserByDNI([FromRoute] int id)
+        public async Task<IActionResult> GetUserByID([FromRoute] int id)
         {
-            User user = await _context.Users.FirstOrDefaultAsync(u => u.IDUser == id);
+            User user = await _context.Users
+                .AsNoTracking()
+                .Include(user => user.Bookings)
+                .FirstOrDefaultAsync(u => u.IDUser == id);
 
             if (user != null)
-                return Ok(user);
+            {
+                JsonSerializerOptions options = new()
+                {
+                    ReferenceHandler = ReferenceHandler.IgnoreCycles,
+                    WriteIndented = true
+                };
+
+                string json = JsonSerializer.Serialize(user, options);
+                return Ok(json);
+            }
             else
                 return NotFound("User doesn´t exists");
         }

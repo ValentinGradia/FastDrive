@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "FastDrive.Controllers.BookingController",
+    "Method": "GetBooking",
+    "RelativePath": "Booking/GetBoooking/{IDBooking}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDBooking",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.BookingController",
     "Method": "CreateBooking",
     "RelativePath": "Booking/NewBooking",
     "HttpMethod": "POST",
@@ -179,7 +195,7 @@
   },
   {
     "ContainingType": "FastDrive.Controllers.UserController",
-    "Method": "GetUserByDNI",
+    "Method": "GetUserByID",
     "RelativePath": "User/GetById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
