@@ -136,6 +136,29 @@
         }
       }
     },
+    "/Booking/CancelCooking/{IDBooking}": {
+      "put": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "IDBooking",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Car/GetByPatent/{patentId}": {
       "get": {
         "tags": [
@@ -535,7 +558,7 @@
             "format": "date-time"
           },
           "BookingStatus": {
-            "$ref": "#/components/schemas/ECarStatus"
+            "$ref": "#/components/schemas/EBookingStatus"
           },
           "Km": {
             "type": "integer",
@@ -603,6 +626,16 @@
           }
         },
         "additionalProperties": false
+      },
+      "EBookingStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ECarStatus": {
         "enum": [

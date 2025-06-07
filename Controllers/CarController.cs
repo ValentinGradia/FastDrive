@@ -11,7 +11,7 @@ namespace FastDrive.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    /*[Authorize(Roles = "worker")]*/ // Only a worker can handle the cars
+    [Authorize(Roles = "worker")] // Only a worker can handle the cars
     public class CarController : Controller
     {
         private readonly FastDriveContext _context;

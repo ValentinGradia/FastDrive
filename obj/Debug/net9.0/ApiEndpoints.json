@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "FastDrive.Controllers.BookingController",
+    "Method": "CancelBooking",
+    "RelativePath": "Booking/CancelCooking/{IDBooking}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDBooking",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.BookingController",
     "Method": "GetBooking",
     "RelativePath": "Booking/GetBoooking/{IDBooking}",
     "HttpMethod": "GET",

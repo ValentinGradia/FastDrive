@@ -127,5 +127,87 @@ namespace FastDrive.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut("CancelCooking/{IDBooking}")]
+        public async Task<IActionResult> CancelBooking([FromRoute] int IDBooking)
+        {
+            try
+            {
+                var currentUser = HttpContext.User;
+                var userId = currentUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                User user = await _context.Users.FindAsync(int.Parse(userId));
+
+                Booking bookingResult = await _context.Bookings
+                    .Include(b => b.Car)
+                    .FirstOrDefaultAsync(b => b.IDBooking == IDBooking);
+
+                BookingController.ValidateBooking(bookingResult);
+
+                //Only cancel if is not started
+                if (bookingResult.BookingStatus != EBookingStatus.Reserved)
+                {
+                    throw new Exception("Can´t cancel the booking");
+                }
+
+                if (bookingResult.IDUser != user!.IDUser)
+                {
+                    throw new Exception("Only the owner of the booking can cancel his own booking");
+                }
+
+                bookingResult.BookingStatus = EBookingStatus.Cancelled;
+                bookingResult.Car.CarStatus = ECarStatus.Available;
+
+                _logger.Log(LogLevel.Information, $"{IDBooking} was cancelled");
+            
+                _context.SaveChanges();
+
+                return Ok(bookingResult.BookingStatus);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("DeliverTheCar/{IDBooking}")]
+        //[Authorize(Roles = "worker")]
+        public async Task<IActionResult> DeliverTheCar([FromRoute] int IDBooking)
+        {
+            Booking bookingResult = await _context.Bookings
+                .Include(b => b.Car)
+                .FirstOrDefaultAsync(b => b.IDBooking == IDBooking);
+
+            try
+            {
+                ValidateBooking(bookingResult);
+
+                bookingResult.BookingStatus = EBookingStatus.InUse;
+
+                return Ok("The client can acces to his car and drive it");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        //[HttpPut("ReturnCar/{CarPatent}")]
+        ////[Authorize(Roles = "customer")]
+        //public async Task<IActionResult> ReturnCar([FromRoute] string CarPatent)
+        //{
+
+        //}
+
+        public static void ValidateBooking(Booking bookingResult)
+        {
+            if (bookingResult == null)
+            {
+                throw new Exception("Incorrect ID");
+            }
+
+        }
+
     }
+
 }

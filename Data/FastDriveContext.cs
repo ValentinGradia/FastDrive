@@ -19,8 +19,14 @@ namespace FastDrive.Data
         {
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.User)
-                .WithMany(b => b.Bookings)
+                .WithMany(u => u.Bookings)
                 .HasForeignKey(b => b.IDUser);
+
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Car)
+                .WithMany(c => c.Bookings)
+                .HasForeignKey(b => b.CarPatent);
+
         }
     }
 }

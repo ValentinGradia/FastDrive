@@ -26,7 +26,7 @@ namespace FastDrive.Models
         public DateTime DateStart {  get; set; }
         public DateTime DateEnd { get; set; }
 
-        public ECarStatus BookingStatus { get; set; }
+        public EBookingStatus BookingStatus { get; set; }
 
         public int? Km {  get; set; } // total Km that the car travel
 

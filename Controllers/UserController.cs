@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Security.Claims;
 
 namespace FastDrive.Controllers
 {
@@ -30,10 +31,13 @@ namespace FastDrive.Controllers
         [HttpGet("GetById/{id}")]
         public async Task<IActionResult> GetUserByID([FromRoute] int id)
         {
+
+            var currentUser = HttpContext.User;
+            var userId = currentUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             User user = await _context.Users
-                .AsNoTracking()
+                .AsNoTracking() //Just give me the data, but don’t keep track of it. Only READING DATA
                 .Include(user => user.Bookings)
-                .FirstOrDefaultAsync(u => u.IDUser == id);
+                .FirstOrDefaultAsync(u => u.IDUser == int.Parse(userId));
 
             if (user != null)
             {
