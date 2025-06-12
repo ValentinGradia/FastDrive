@@ -186,4 +186,3 @@ C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Swashbuckle.AspNetCore.Sw
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\valen\source\repos\FastDrive\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
-C:\Users\valen\source\repos\FastDrive\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -159,6 +159,51 @@
         }
       }
     },
+    "/Booking/DeliverTheCar/{IDBooking}": {
+      "put": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "IDBooking",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Booking/ReturnCar/{carPatent}": {
+      "put": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "carPatent",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Car/GetByPatent/{patentId}": {
       "get": {
         "tags": [
@@ -559,15 +604,6 @@
           },
           "BookingStatus": {
             "$ref": "#/components/schemas/EBookingStatus"
-          },
-          "Km": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "DamageReport": {
-            "type": "boolean",
-            "nullable": true
           },
           "Cost": {
             "type": "integer",

@@ -22,15 +22,11 @@ namespace FastDrive.Models
         [ForeignKey("CarPatent")]
         [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] //to avoid the loop
         public Car Car { get; set; }//I have the possibility to doesnt show this becase is only one (The opposite in Car.booking)
-
+        
         public DateTime DateStart {  get; set; }
         public DateTime DateEnd { get; set; }
 
         public EBookingStatus BookingStatus { get; set; }
-
-        public int? Km {  get; set; } // total Km that the car travel
-
-        public bool? DamageReport { get; set; } //If the car has it, has to be under repair
 
         public int? Cost {  get; set; } //Cost of the booking depending on the total KM
 

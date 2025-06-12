@@ -31,20 +31,17 @@ namespace FastDrive.Controllers
 
         
         [HttpPost("NewBooking")]
+        [Authorize(Roles = "customer")]
         public async Task<IActionResult> CreateBooking([FromBody] BookingDTO bookingDTO)
         {
             if (bookingDTO != null)
             {
                 try
                 {
-                    //We dont have to retrieve the JWT manually, HttpContext.User is responsible for do this
-                    var currentUser = HttpContext.User;
-                    var userId = currentUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
                     TimeSpan difference = bookingDTO.DateEnd - bookingDTO.DateStart;
                     int days = difference.Days;
 
-                    User user = await _context.Users.FindAsync(int.Parse(userId));
+                    User user = this.ReturnCurrentUser(HttpContext);
                     Car car = await _context.Cars.FirstOrDefaultAsync(c => c.Patent == bookingDTO.PatentCar);
 
                     if (car != null )
@@ -133,9 +130,8 @@ namespace FastDrive.Controllers
         {
             try
             {
-                var currentUser = HttpContext.User;
-                var userId = currentUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                User user = await _context.Users.FindAsync(int.Parse(userId));
+
+                User user = this.ReturnCurrentUser(HttpContext);
 
                 Booking bookingResult = await _context.Bookings
                     .Include(b => b.Car)
@@ -171,7 +167,7 @@ namespace FastDrive.Controllers
         }
 
         [HttpPut("DeliverTheCar/{IDBooking}")]
-        //[Authorize(Roles = "worker")]
+        [Authorize(Roles = "worker")]
         public async Task<IActionResult> DeliverTheCar([FromRoute] int IDBooking)
         {
             Booking bookingResult = await _context.Bookings
@@ -192,12 +188,77 @@ namespace FastDrive.Controllers
             }
         }
 
-        //[HttpPut("ReturnCar/{CarPatent}")]
-        ////[Authorize(Roles = "customer")]
-        //public async Task<IActionResult> ReturnCar([FromRoute] string CarPatent)
-        //{
+        [HttpPut("ReturnCar/{carPatent}")]
+        [Authorize(Roles = "customer")]
+        public async Task<IActionResult> ReturnCar([FromRoute] string carPatent)
+        {
 
-        //}
+            DateTime timeCarReturned = DateTime.Now;
+
+            string msg = "The booking has be completed";
+
+            if (carPatent != null)
+            {
+                var query = _context.Bookings.AsQueryable();
+
+                query = query.Where(b => b.CarPatent == carPatent)
+                    .Where(b => b.BookingStatus == EBookingStatus.InUse)
+                    .Include(b => b.Car);
+
+                Booking booking = await query.FirstOrDefaultAsync();
+
+                if (booking != null)
+                {
+                    booking.BookingStatus = EBookingStatus.Completed;
+                    booking.Car.CarStatus = ECarStatus.Available;
+
+
+                    //If the customer deliver the car after the dateEnd, has a extra cost
+                    TimeSpan difference = timeCarReturned - booking.DateEnd;
+
+                    if(difference.Days  > 0)
+                    {
+                        int extra = difference.Days * 10;
+                        booking.Cost += extra;
+
+                        _logger.Log(LogLevel.Information, $"{booking.IDBooking} id booking already completed");
+                        _context.SaveChanges();
+                        return Ok(msg + $", and you have to pay an extra that is $ {extra} USD");
+                    }
+                    else
+                        return Ok(msg);
+
+                }
+                else
+                    return NotFound("Invalid Car patent");
+            }
+            else
+                return BadRequest("Invalid Data");
+        }
+
+        [HttpGet("MyBookings")]
+        [Authorize(Roles = "customer")]
+        public async Task<IActionResult> ReturnAllUserBookings()
+        {
+            User user = this.ReturnCurrentUser(HttpContext);
+
+            List<Booking> bookings = await _context.Bookings
+                                    .AsNoTracking() //If i only want to show the Booking data without other data like User and Car (in this case), use this!
+                                    .Where(b => b.IDUser == user.IDUser)
+                                    .ToListAsync();
+
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = ReferenceHandler.IgnoreCycles,
+                WriteIndented = true,
+                MaxDepth = 0,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            string json = JsonSerializer.Serialize(bookings, options);
+
+            return Ok(json);
+        }
 
         public static void ValidateBooking(Booking bookingResult)
         {
@@ -206,6 +267,13 @@ namespace FastDrive.Controllers
                 throw new Exception("Incorrect ID");
             }
 
+        }
+
+        public User ReturnCurrentUser(HttpContext htpp)
+        {
+            //We dont have to retrieve the JWT manually, HttpContext.User is responsible for do this
+            var userId = htpp.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return _context.Users.Find(int.Parse(userId));
         }
 
     }
