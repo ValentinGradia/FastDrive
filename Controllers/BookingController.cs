@@ -105,15 +105,8 @@ namespace FastDrive.Controllers
                 {
 
                     //Solving the error of " A possible object cycle was detected which is not supported." when i give this into a json
-                    JsonSerializerOptions options = new()
-                    {
-                        ReferenceHandler = ReferenceHandler.IgnoreCycles,
-                        WriteIndented = true,
-                        MaxDepth = 0,
-                        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                    };
 
-                    string json = JsonSerializer.Serialize(booking, options);
+                    string json = JSON.JsonOptions<Booking>(booking);
                     return Ok(json);
                 }
                 else
@@ -247,17 +240,21 @@ namespace FastDrive.Controllers
                                     .Where(b => b.IDUser == user.IDUser)
                                     .ToListAsync();
 
-            JsonSerializerOptions options = new()
-            {
-                ReferenceHandler = ReferenceHandler.IgnoreCycles,
-                WriteIndented = true,
-                MaxDepth = 0,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            };
-
-            string json = JsonSerializer.Serialize(bookings, options);
+            string json = JSON.JsonOptions<List<Booking>>(bookings);
 
             return Ok(json);
+        }
+
+        [HttpGet("AllBookings")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> GetAllBookings()
+        {
+            List<Booking> bookings = _context.Bookings.ToList();
+
+            string json = JSON.JsonOptions<List<Booking>>(bookings);
+
+            return Ok(json);
+
         }
 
         public static void ValidateBooking(Booking bookingResult)

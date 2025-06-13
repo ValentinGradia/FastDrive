@@ -9,7 +9,6 @@ namespace FastDrive.Models
         [JsonIgnore]
         public int IDSurvey {  get; set; }
         public int IDUser { get; set; }
-        public int IDBooking { get; set; }
         public string Description { get; set; }
         public int ServiceCalification {  get; set; }
     }

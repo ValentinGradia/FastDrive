@@ -43,7 +43,7 @@ namespace FastDrive.Controllers
 
         [HttpGet("SearchCar")]
         //Params can be null
-        public async Task<IActionResult> SearchCar([FromQuery] string? model, [FromQuery] int? minKm, [FromQuery] int? maxKm, [FromQuery] string? brand, [FromQuery] int? carstatus)
+        public async Task<IActionResult> SearchCar([FromQuery] string? model, [FromQuery] string? brand, [FromQuery] int? carstatus)
         {
             var query = _context.Cars.AsQueryable();
 
@@ -58,19 +58,12 @@ namespace FastDrive.Controllers
                 query = query.Where(c => c.CarStatus == (ECarStatus)carstatus);
             }
 
-            if (minKm != null && maxKm != null)
-            {
-                if (minKm > 0 && maxKm > 0)
-                    query = query.Where(c => c.Km >= minKm && c.Km <= maxKm);
-            }
-
             List<Car> cars = await query.ToListAsync();
 
             return Ok(cars);
         }
 
         [HttpGet("GetAllCars")]
-        [Authorize(Roles = "admin")]
         public async Task<IActionResult> GetAllCars()
         {
             return Ok(await _context.Cars.ToListAsync());

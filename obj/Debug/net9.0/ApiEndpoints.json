@@ -2084,6 +2084,16 @@
   },
   {
     "ContainingType": "FastDrive.Controllers.BookingController",
+    "Method": "GetAllBookings",
+    "RelativePath": "Booking/AllBookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.BookingController",
     "Method": "CancelBooking",
     "RelativePath": "Booking/CancelCooking/{IDBooking}",
     "HttpMethod": "PUT",
@@ -2249,16 +2259,6 @@
         "IsRequired": false
       },
       {
-        "Name": "minKm",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "maxKm",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
         "Name": "brand",
         "Type": "System.String",
         "IsRequired": false
@@ -2287,6 +2287,22 @@
       {
         "Name": "patent",
         "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastDrive.Controllers.SurveyController",
+    "Method": "NewSurvey",
+    "RelativePath": "Survey/NewSurvey",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "surveyDTO",
+        "Type": "FastDrive.Models.DTO.SurveyDTO",
         "IsRequired": true
       }
     ],
