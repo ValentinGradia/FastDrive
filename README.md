@@ -1,0 +1,1 @@
+FastDrive is a company that rents cars to registered customers. The system manages the entire process: from booking, pickup, and return of the vehicle to billing and fleet performance analysis. It also provides administrative tools to manage vehicles, users, incidents, and satisfaction surveys.
