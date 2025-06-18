@@ -48,5 +48,27 @@ namespace FastDrive.Controllers
             else
                 return BadRequest("Invalid Data");
         }
+
+        [HttpGet("BestSurveys")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> GetBestSurveys()
+        {
+            List<Survey> srveys = _context.Surveys.Where(s => s.ServiceCalification > 7).ToList();
+
+            string json = JSON.JsonOptions<List<Survey>>(srveys);
+
+            return Ok(json);
+        }
+
+        [HttpGet("WorstSurveys")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> GetWorstSurveys()
+        {
+            List<Survey> srveys = _context.Surveys.Where(s => s.ServiceCalification < 4).ToList();
+
+            string json = JSON.JsonOptions<List<Survey>>(srveys);
+
+            return Ok(json);
+        }
     }
 }
